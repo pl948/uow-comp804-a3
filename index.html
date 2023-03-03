@@ -4,630 +4,630 @@
     <meta charset="utf-8">
     <title>UOW COMP804 - Assessment 3</title>
 
-	<script>	
+    <script>    
 
-		// This function returns animal data for task 4. This allows
-		// me to check input and handle errors in a single place.
-		function getAnimal(name){
-			// use an object to store the data we need for each animal
-			let animal = {
-				cat: {
-					displayName: "Cat",
-					sound: "Meow",
-					emoji: "&#x1F431;",
-					infoUrl: "https://en.wikipedia.org/wiki/cat",
-					imgFile: "cat.png"
-				},
-				dog: {
-					displayName: "Dog",
-					sound: "Woof Woof",
-					emoji: "&#x1F436;",
-					infoUrl: "https://en.wikipedia.org/wiki/dog",
-					imgFile: "dog.png"
-				},
-				frog: {
-					displayName: "Frog",
-					sound: "Ribbit",
-					emoji: "&#x1F438;",
-					infoUrl: "https://en.wikipedia.org/wiki/frog",
-					imgFile: "frog.png"
-				}
-			};
+        // This function returns animal data for task 4. This allows
+        // me to check input and handle errors in a single place.
+        function getAnimal(name){
+            // use an object to store the data we need for each animal
+            let animal = {
+                cat: {
+                    displayName: "Cat",
+                    sound: "Meow",
+                    emoji: "&#x1F431;",
+                    infoUrl: "https://en.wikipedia.org/wiki/cat",
+                    imgFile: "cat.png"
+                },
+                dog: {
+                    displayName: "Dog",
+                    sound: "Woof Woof",
+                    emoji: "&#x1F436;",
+                    infoUrl: "https://en.wikipedia.org/wiki/dog",
+                    imgFile: "dog.png"
+                },
+                frog: {
+                    displayName: "Frog",
+                    sound: "Ribbit",
+                    emoji: "&#x1F438;",
+                    infoUrl: "https://en.wikipedia.org/wiki/frog",
+                    imgFile: "frog.png"
+                }
+            };
 
-			// check if provided animal is valid
-			if (name.toLowerCase() in animal) {
-				// return object data
-				return animal[name.toLowerCase()];
-			} else {
-				// throw exception
-				// developer.mozilla.org/en-US/docs/Web/JavaSccript/Reference/Statements/throw
-				throw new Error("InvalidAnimal");
-			};
-		}
+            // check if provided animal is valid
+            if (name.toLowerCase() in animal) {
+                // return object data
+                return animal[name.toLowerCase()];
+            } else {
+                // throw exception
+                // developer.mozilla.org/en-US/docs/Web/JavaSccript/Reference/Statements/throw
+                throw new Error("InvalidAnimal");
+            };
+        }
 
-		// all actions take place simultaneously, so we can
-		// use a single function on button click
-		function animalBtn(name){   
-			let btn = document.getElementById("animalBtn");
-			let sound = document.getElementById("animalSound");
-			let info = document.getElementById("animalInfo");
-			let url = document.getElementById("animalUrl");
-			let img = document.getElementById("animalImg");
+        // all actions take place simultaneously, so we can
+        // use a single function on button click
+        function animalBtn(name){   
+            let btn = document.getElementById("animalBtn");
+            let sound = document.getElementById("animalSound");
+            let info = document.getElementById("animalInfo");
+            let url = document.getElementById("animalUrl");
+            let img = document.getElementById("animalImg");
 
-			// update text displayed to user
-			btn.value = `User clicks ${getAnimal(name).displayName}`;
-			sound.innerHTML = `${getAnimal(name).emoji}: ${getAnimal(name).sound}!`;
+            // update text displayed to user
+            btn.value = `User clicks ${getAnimal(name).displayName}`;
+            sound.innerHTML = `${getAnimal(name).emoji}: ${getAnimal(name).sound}!`;
 
-			// update display styling to show the hyperlink
-			info.style.display = "contents";
+            // update display styling to show the hyperlink
+            info.style.display = "contents";
 
-			// set the correct URL for the link
-			url.href = getAnimal(name).infoUrl;
+            // set the correct URL for the link
+            url.href = getAnimal(name).infoUrl;
 
-			// set correct file name for image
-			img.src = getAnimal(name).imgFile;
-		}
+            // set correct file name for image
+            img.src = getAnimal(name).imgFile;
+        }
 
     </script>
-	
-	<style> 
+    
+    <style> 
 
-		/* default body styling */
-		body {
-			/* set a very light grey background */
-			background-color: 	rgb(243, 243, 243);
+        /* default body styling */
+        body {
+            /* set a very light grey background */
+            background-color:   rgb(243, 243, 243);
 
-			/* use a nicer font than default */
-			font-family: 		"arial", "sans-serif";
+            /* use a nicer font than default */
+            font-family:        "arial", "sans-serif";
 
-			/* maintain a small margin at each edge */
-			margin: 			20px;
-		}
+            /* maintain a small margin at each edge */
+            margin:             20px;
+        }
 
-		/* default div styling */
-		div {
-			/* grey dotted border */
-			border:			2px dotted rgb(141, 141, 141);
-			/* default to dark blue text */
-			color: 			darkblue;
-		
-			/* rounded border */
-			border-radius: 	10px;
+        /* default div styling */
+        div {
+            /* grey dotted border */
+            border:         2px dotted rgb(141, 141, 141);
+            /* default to dark blue text */
+            color:          darkblue;
+        
+            /* rounded border */
+            border-radius:  10px;
 
-			/* add some padding */
-			padding-bottom: 40px;
-			padding-left: 	40px;
-			padding-right: 	40px;
-			/* no padding at top because of Task heading */
-			padding-top: 	none;
+            /* add some padding */
+            padding-bottom: 40px;
+            padding-left:   40px;
+            padding-right:  40px;
+            /* no padding at top because of Task heading */
+            padding-top:    none;
 
-			/* don't stretch whole screen */
-			max-width: 		1024px;
+            /* don't stretch whole screen */
+            max-width:      1024px;
 
-			/* remain centered */
-			margin: 		auto;
-		}
+            /* remain centered */
+            margin:         auto;
+        }
 
-		
-		/* general styling for all tables */
-		table {
-			/* very slight shadow effect on all tables */
-			box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);	
-		}		
+        
+        /* general styling for all tables */
+        table {
+            /* very slight shadow effect on all tables */
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);    
+        }       
 
-		/* Alternate colours on all odd and even table rows */
-		.oddRow {
-			/* light grey for odd rows */
-			background-color: rgb(241, 241, 241);
-		}
+        /* Alternate colours on all odd and even table rows */
+        .oddRow {
+            /* light grey for odd rows */
+            background-color: rgb(241, 241, 241);
+        }
 
-		.evenRow {
-			/* white for even rows */
-			background-color: white;
-		}
-
-
-		/* styling for all links on page */
-		a {
-			outline: 			none;
-			text-decoration: 	none;
-			padding: 			2px 1px 0;
-			background-size: 	16px 16px;
-		}
-
-		a:link {
-			/* default link text colour */
-			color: 				#006a9b;
-		}
-
-		a:visited {
-			/* visited same as default */
-			color:				#007cb6;
-		}
-
-		a:focus,
-		a:hover {
-			/* add background colour on hover */
-			background-color: 	#9ee0ff;
-			border-bottom: 		1px solid;
-		}
-
-		a:active {
-			/* add styling on click */
-			background-color: 	#42b2e6;
-			color: 				#bdeaff;
-		}
+        .evenRow {
+            /* white for even rows */
+            background-color: white;
+        }
 
 
-		/* task headings */
-		.taskHeading {
-			/* use different fong for Task headings */
-			font-family: 	"Lucida Console", "Courier New", monospace;
-			/* align to the left */
-			text-align: 	left;
-		}
+        /* styling for all links on page */
+        a {
+            outline:            none;
+            text-decoration:    none;
+            padding:            2px 1px 0;
+            background-size:    16px 16px;
+        }
+
+        a:link {
+            /* default link text colour */
+            color:              #006a9b;
+        }
+
+        a:visited {
+            /* visited same as default */
+            color:              #007cb6;
+        }
+
+        a:focus,
+        a:hover {
+            /* add background colour on hover */
+            background-color:   #9ee0ff;
+            border-bottom:      1px solid;
+        }
+
+        a:active {
+            /* add styling on click */
+            background-color:   #42b2e6;
+            color:              #bdeaff;
+        }
 
 
-		/* horizontal line/divider to seaparate tasks */
-		.divider {
-			/* grey dashed line */
-			border: 		2px dashed rgb(202, 202, 202);
-
-			/* max width for divider */
-			max-width: 		640px;
-
-			/* enforce a marging above and below */
-			margin-top:		60px;
-			margin-bottom:	60px;
-		}
+        /* task headings */
+        .taskHeading {
+            /* use different fong for Task headings */
+            font-family:    "Lucida Console", "Courier New", monospace;
+            /* align to the left */
+            text-align:     left;
+        }
 
 
-		/* top heading */
-		h1.mainHeading {
-			margin:		50px;
-			font-size:	50px;
-			color:		red; 
-			text-align:	center;
+        /* horizontal line/divider to seaparate tasks */
+        .divider {
+            /* grey dashed line */
+            border:         2px dashed rgb(202, 202, 202);
 
-		}
+            /* max width for divider */
+            max-width:      640px;
 
-		
-		/* Task 1 div */
+            /* enforce a marging above and below */
+            margin-top:     60px;
+            margin-bottom:  60px;
+        }
+
+
+        /* top heading */
+        h1.mainHeading {
+            margin:     50px;
+            font-size:  50px;
+            color:      red; 
+            text-align: center;
+
+        }
+
+        
+        /* Task 1 div */
         .T1 {
-			/* light blue background */
-			background-color: 	rgb(180, 226, 255);
+            /* light blue background */
+            background-color:   rgb(180, 226, 255);
 
-			/* center student info */
-            text-align:			center;
-     	 }
+            /* center student info */
+            text-align:         center;
+         }
 
-		 /* student info headings */
-		.T1 h1 {
-			font-size: 	2.5em;
-			color: 		rgb(0, 72, 206);
-	  	}
+         /* student info headings */
+        .T1 h1 {
+            font-size:  2.5em;
+            color:      rgb(0, 72, 206);
+        }
 
-	  	.T1 h2 {
-			font-size: 	2em;
-			color: 		rgb(12, 101, 202);
-	  	}
+        .T1 h2 {
+            font-size:  2em;
+            color:      rgb(12, 101, 202);
+        }
 
-	  	.T1 h3 {
-			font-size: 	1.5em;
-			color: 		rgb(20, 130, 199)
-	 	}
-		
+        .T1 h3 {
+            font-size:  1.5em;
+            color:      rgb(20, 130, 199)
+        }
+        
 
-		
-		/* Task 2 div */
-		.T2 {
-			/* light green background */
-            background-color:	rgb(209, 255, 221);
-     	 }
+        
+        /* Task 2 div */
+        .T2 {
+            /* light green background */
+            background-color:   rgb(209, 255, 221);
+         }
 
-		 /* UOW dates table */
-		#uowDates {
-			/* no border on table */
-			border-collapse: 	collapse;
-			border-spacing: 	10px;
+         /* UOW dates table */
+        #uowDates {
+            /* no border on table */
+            border-collapse:    collapse;
+            border-spacing:     10px;
 
-			/* use auto for left and right margins to keep table centered */
-			margin-left: 		auto;
-			margin-right: 		auto;
-		}
+            /* use auto for left and right margins to keep table centered */
+            margin-left:        auto;
+            margin-right:       auto;
+        }
 
-		/* align text on the left and add some padding */
-		#uowDates th,
-		#uowDates td {
-			padding: 	20px;
-			text-align: left;
-		}
+        /* align text on the left and add some padding */
+        #uowDates th,
+        #uowDates td {
+            padding:    20px;
+            text-align: left;
+        }
 
-		/* no border on table header */
-		#uowDates th {
-			/* darker green background */
-			background-color: 	rgb(126, 230, 153);
-			/* dark grey font for table headings */
-			color: 				rgb(94, 94, 94)
-		}
+        /* no border on table header */
+        #uowDates th {
+            /* darker green background */
+            background-color:   rgb(126, 230, 153);
+            /* dark grey font for table headings */
+            color:              rgb(94, 94, 94)
+        }
 
-		#uowDates td {
-			/* grey border on table data */
-			border: 1px solid rgb(241, 241, 241);	
-		}
-		
+        #uowDates td {
+            /* grey border on table data */
+            border: 1px solid rgb(241, 241, 241);   
+        }
+        
 
-		/* Task 3 div */
-		.T3 {
-			/* light purple background */
-			background-color: rgb(247, 230, 255);	
-		}
+        /* Task 3 div */
+        .T3 {
+            /* light purple background */
+            background-color: rgb(247, 230, 255);   
+        }
 
-		/* Veggie table */
-		#veggies {
-			/* only a single table border */
-			border: 			1px solid gray;
-			border-collapse: 	collapse;
-			border-spacing: 	10px;
-			
-			/* use auto for left and right margins to keep table centered */
-			margin-left: 		auto;
-			margin-right: 		auto;
+        /* Veggie table */
+        #veggies {
+            /* only a single table border */
+            border:             1px solid gray;
+            border-collapse:    collapse;
+            border-spacing:     10px;
+            
+            /* use auto for left and right margins to keep table centered */
+            margin-left:        auto;
+            margin-right:       auto;
 
-		}
+        }
 
-		/* Veggie table headings */
-		#veggies th {
-			/* darker purple background */
-			background-color: 	rgb(231, 178, 255);
-			padding: 			40px;
+        /* Veggie table headings */
+        #veggies th {
+            /* darker purple background */
+            background-color:   rgb(231, 178, 255);
+            padding:            40px;
 
-			/* increase heading size */
-			font-size: 			1.6em;
-			/* black font colour for headings */
-			color: 				black;
-			text-align: 		center;
-		}
+            /* increase heading size */
+            font-size:          1.6em;
+            /* black font colour for headings */
+            color:              black;
+            text-align:         center;
+        }
 
-		#veggies td {
-			/* add some padding for health benefit text */
-			padding: 25px;
-			
-		}
+        #veggies td {
+            /* add some padding for health benefit text */
+            padding: 25px;
+            
+        }
 
-		.vegColumn {
-			/* align vegetable names in the center */
-			text-align: center;
-		}
+        .vegColumn {
+            /* align vegetable names in the center */
+            text-align: center;
+        }
 
-		.vegImg {
-			/*  max width for vegetable images */
-			max-width:	160px;
-			height:		auto;
-		}
+        .vegImg {
+            /*  max width for vegetable images */
+            max-width:  160px;
+            height:     auto;
+        }
 
-		.hbColumn {
-			/* set max width on health benefit column based
-			   on number of characters, to maintain readability */
-			max-width: 60ch;
-		}
+        .hbColumn {
+            /* set max width on health benefit column based
+               on number of characters, to maintain readability */
+            max-width: 60ch;
+        }
 
 
-		/* Task 4 div */
-		.T4 {
-			/* light red background */
-			background-color: rgb(255, 232, 232);
-		}
+        /* Task 4 div */
+        .T4 {
+            /* light red background */
+            background-color: rgb(255, 232, 232);
+        }
 
-		/* div for aligning contents */
-		.animalGame {
-			/* align buttons and text in center */
-			border: 	none;
-			text-align: center;
-		}
+        /* div for aligning contents */
+        .animalGame {
+            /* align buttons and text in center */
+            border:     none;
+            text-align: center;
+        }
 
-		/* buttons for clicking on an animal */
-		.animalGame button {
-			width: 				100px;
-			border-radius: 		3px;
-			border: 			1px solid #ffcfcf;
-			background-color: 	#ffb7b7;
-			box-shadow: 		rgba(255, 255, 255, .7) 0 1px 0 0 inset;
-			color: 				#5a5a5a;
-			margin: 			3px;
-			outline: 			none;
-			padding: 			8px .8em;
+        /* buttons for clicking on an animal */
+        .animalGame button {
+            width:              100px;
+            border-radius:      3px;
+            border:             1px solid #ffcfcf;
+            background-color:   #ffb7b7;
+            box-shadow:         rgba(255, 255, 255, .7) 0 1px 0 0 inset;
+            color:              #5a5a5a;
+            margin:             3px;
+            outline:            none;
+            padding:            8px .8em;
 
-			/* update cursor on button hover */
-			cursor: 			pointer;
+            /* update cursor on button hover */
+            cursor:             pointer;
 
-			/* set font styling for button */
-			font-size: 			13px;
-			font-weight:		400;
-			line-height:		1.15385;
-			position: 			relative;
-			text-align: 		center;
-		}
+            /* set font styling for button */
+            font-size:          13px;
+            font-weight:        400;
+            line-height:        1.15385;
+            position:           relative;
+            text-align:         center;
+        }
 
-		/* hide this span by default. It will be toggled
-		   by our function after button click */
-		#animalInfo {
-			display: none;
-		}
+        /* hide this span by default. It will be toggled
+           by our function after button click */
+        #animalInfo {
+            display: none;
+        }
 
-		/* add some styling to text box */
-		.textBox {
-			border: 			2px solid #cdcdcd;
-			border-color: 		rgba(0, 0, 0, .14);
-			background-color: 	AliceBlue;
-			height: 			30px;
-			font-size: 			1em;
-			text-align: 		center;
+        /* add some styling to text box */
+        .textBox {
+            border:             2px solid #cdcdcd;
+            border-color:       rgba(0, 0, 0, .14);
+            background-color:   AliceBlue;
+            height:             30px;
+            font-size:          1em;
+            text-align:         center;
 
-			/* show disabled cursor on mouse hover */
-			cursor: 			not-allowed;
-		}
+            /* show disabled cursor on mouse hover */
+            cursor:             not-allowed;
+        }
 
-		#animalImg {
-			/* animal image image dimensions */
-			max-width:	640px;
-			height:		auto;
-		}
+        #animalImg {
+            /* animal image image dimensions */
+            max-width:  640px;
+            height:     auto;
+        }
 
-	</style>	
+    </style>    
 </head>
 
 <body>
     <h1 class="mainHeading">Assessment task 3 - Assignment 1</h1>
 
     <div class="T1">
-		<h4 class="taskHeading">Task 1</h4>
-		<h1>8161160 Lindsay P</h1>
-		<h2>COMP804: Web Security</h2>
-		<h3>Assignment 1, due at the end of Week 5</h3>
+        <h4 class="taskHeading">Task 1</h4>
+        <h1>8161160 Lindsay P</h1>
+        <h2>COMP804: Web Security</h2>
+        <h3>Assignment 1, due at the end of Week 5</h3>
     </div>
-	
-	<hr class="divider">
+    
+    <hr class="divider">
 
-	<div class="T2">
-		<h4 class="taskHeading">Task 2</h4>
-		<table id="uowDates">
-			<tr id="headerRow">
-				<th class="activityColumn">Activity</th>
-				<th class="dateColumn">Date</th>
-			</tr>
+    <div class="T2">
+        <h4 class="taskHeading">Task 2</h4>
+        <table id="uowDates">
+            <tr id="headerRow">
+                <th class="activityColumn">Activity</th>
+                <th class="dateColumn">Date</th>
+            </tr>
   
-			<tr class="oddRow">
-				<td class="activityColumn">
-					First day to enrol for 
-					re-enrolling (continuing students)
-				</td>
-				<td class="dateColumn">22 Nov 2021</td>
-			</tr>
+            <tr class="oddRow">
+                <td class="activityColumn">
+                    First day to enrol for 
+                    re-enrolling (continuing students)
+                </td>
+                <td class="dateColumn">22 Nov 2021</td>
+            </tr>
   
-			<tr class="evenRow">
-				<td class="activityColumn">Orientation</td>
-				<td class="dateColumn">
-					During Week of 18 July 2022
-					<br><br>
-					Visit Orientation page for more details.
-				</td>
-			</tr>
-		  
-			<tr class="oddRow">
-				<td class="activityColumn">
-					Lectures Commence (weeks 1-9)
-				</td>
-				<td class="dateColumn">25 Jul - 23 Sep 2022</td>
-			</tr>
-		
-			<tr class="evenRow">
-				<td class="activityColumn">
-					Last day to enrol / add subjects yourself
-				</td>
-				<td class="dateColumn">05 Aug 2022</td>
-			</tr>
-				
-			<tr class="oddRow">
-				<td class="activityColumn">
-					Last day to enrol / add subjects with 
-					Head of Student approval
-				</td>
-				<td class="dateColumn">12 Aug 2022</td>
-			</tr>
-      	</table>
-	</div>
+            <tr class="evenRow">
+                <td class="activityColumn">Orientation</td>
+                <td class="dateColumn">
+                    During Week of 18 July 2022
+                    <br><br>
+                    Visit Orientation page for more details.
+                </td>
+            </tr>
+          
+            <tr class="oddRow">
+                <td class="activityColumn">
+                    Lectures Commence (weeks 1-9)
+                </td>
+                <td class="dateColumn">25 Jul - 23 Sep 2022</td>
+            </tr>
+        
+            <tr class="evenRow">
+                <td class="activityColumn">
+                    Last day to enrol / add subjects yourself
+                </td>
+                <td class="dateColumn">05 Aug 2022</td>
+            </tr>
+                
+            <tr class="oddRow">
+                <td class="activityColumn">
+                    Last day to enrol / add subjects with 
+                    Head of Student approval
+                </td>
+                <td class="dateColumn">12 Aug 2022</td>
+            </tr>
+        </table>
+    </div>
 
-	<hr class="divider">
-	
+    <hr class="divider">
+    
     <div class="T3">
-	<h4 class="taskHeading">Task 3</h4>
-		<table id="veggies">
-			<tr id="headerRow">
-				<th class="vegColumn">Name</th>
-				<th class="hbColumn">Health benefit</th>
-			</tr>
-			<tr class="oddRow">
-				<td class="vegColumn">
-					<h4>Spinach</h4>
-					<img class="vegImg" src="spinach.png">
-				</td>
-				<td class="hbColumn">
-					<p>Spinach has a host of benefits. It may reduce oxidative 
-					stress, promote eye health, fight cancer, and regulate 
-					blood pressure.</p>
-					<br><br>
-					<a target="blank" href="https://www.healthline.com/nutrition/foods/spinach#benefits">
-						Healthline: Spinach 101
-					</a>
-				</td>
-			</tr>
-			<tr class="evenRow">
-				<td class="vegColumn">
-					<h4>Carrot</h4>
-					<img class="vegImg" src="carrot.png">
-				</td>
-				<td class="hbColumn">
-					<p>Eating carrots is linked to a reduced risk of cancer 
-					and heart disease, as well as improved eye health. 
-					Additionally, this vegetable may be a valuable component 
-					of an effective weight loss diet.</p>
-					<br><br>
-					<a target="blank" href="https://www.healthline.com/nutrition/foods/carrots#benefits">
-						Healthline: Carrots 101
-					</a>
-				</td>
-			</tr>
-			<tr class="oddRow">
-				<td class="vegColumn">
-					<h4>Broccoli</h4>
-					<img class="vegImg" src="broccoli.png">
-				</td>
-				<td class="hbColumn">
-					<p>Broccoli's isothiocyanates may improve many risk 
-					factors for disease and reduce your risk of cancer. What's 
-					more, this vegetable may help lower cholesterol and boost 
-					eye health.</p>
-					<br><br>
-					<a target="blank" href="https://www.healthline.com/nutrition/foods/broccoli#benefits">
-						Healthline: Broccoli 101
-					</a>
-				</td>
-			</tr>
-			<tr class="evenRow">
-				<td class="vegColumn">
-					<h4>Garlic</h4>
-					<img class="vegImg" src="garlic.png">
-				</td>
-				<td class="hbColumn">
-					<p>Current research shows that garlic may have some real 
-					health benefits, such as protection against the common 
-					cold and the ability to help lower blood pressure and 
-					cholesterol levels.</p>
-					<br><br>
-					<a target="blank" href="https://www.healthline.com/nutrition/11-proven-health-benefits-of-garlic">
-						Healthline: Health benefits of Garlic
-					</a>
-				</td>
-			</tr>
-			<tr class="oddRow">
-				<td class="vegColumn">
-					<h4>Pumpkin</h4>
-					<img class="vegImg" src="pumpkin.png">
-				</td>
-				<td class="hbColumn">
-					<p>Rich in vitamins, minerals and antioxidants, pumpkin 
-					is incredibly healthy. What's more, its low calorie 
-					content makes it a weight-loss-friendly food.</p>
-					<br><br>
-					<a target="blank" href="https://www.healthline.com/nutrition/pumpkin">
-						Healthline: Health benefits of Pumpkin
-					</a>
-				</td>
-			</tr>
-			<tr class="evenRow">
-				<td class="vegColumn">
-					<h4>Kale</h4>
-					<img class="vegImg" src="kale.png">
-				</td>
-				<td class="hbColumn">
-					<p>Kale is a nutritious food rich in antioxidants, 
-					vitamin C, vitamin K, and beta-carotene. It also 
-					contains nutrients that can support eye health, 
-					weight management, heart health, and more.</p>
-					<br><br>
-					<a target="blank" href="https://www.healthline.com/nutrition/10-proven-benefits-of-kale">
-						Healthline: Health benefits of Kale
-					</a>
-				</td>
-			</tr>		
-			<tr class="oddRow">
-				<td class="vegColumn">
-					<h4>Potato</h4>
-					<img class="vegImg" src="potato.png">
-				</td>
-				<td class="hbColumn">
-					<p>Potatoes contain antioxidants and supply beneficial 
-					vitamins and minerals, including vitamin C, B6, 
-					and potassium. They may also benefit your 
-					digestive health.</p>
-					<br><br>
-					<a target="blank" href="https://www.healthline.com/nutrition/benefits-of-potatoes">
-						Healthline: Health benefits of Potatoes
-					</a>
-				</td>
-			</tr>
-			<tr class="evenRow">
-				<td class="vegColumn">
-					<h4>Sweet potato</h4>
-					<img class="vegImg" src="sweet_potato.png">
-				</td>
-				<td class="hbColumn">
-					<p>Sweet potatoes are versatile and nutritious, 
-					packing a good amount of vitamin A, vitamin C, 
-					and manganese into each serving. They also have 
-					anti-cancer properties and may promote immune 
-					function, gut health, brain function, and eye health.</p>
-					<br><br>
-					<a target="blank" href="https://www.healthline.com/nutrition/sweet-potato-benefits">
-						Healthline: Health benefits of Sweet Potatoes
-					</a>
-				</td>
-			</tr>
-			<tr class="oddRow">
-				<td class="vegColumn">
-					<h4>Cauliflower</h4>
-					<img class="vegImg" src="cauliflower.png">
-				</td>
-				<td class="hbColumn">
-					<p>Cauliflower contains unique plant compounds 
-					that may reduce the risk of several diseases, 
-					including heart disease and cancer.</p>
-					<br><br>
-					<a target="blank" href="https://www.healthline.com/nutrition/benefits-of-cauliflower">
-						Healthline: Health benefits of Cauliflower
-					</a>
-				</td>
-			</tr>
-			<tr class="evenRow">
-				<td class="vegColumn">
-					<h4>Onion</h4>
-					<img class="vegImg" src="onion.png">
-				</td>
-				<td class="hbColumn">
-					<p>Onions are highly nutritious and have been associated 
-					with several benefits, including improved heart 
-					health, better blood sugar control, and increased 
-					bone density.</p>
-					<br><br>
-					<a target="blank" href="https://www.healthline.com/nutrition/onion-benefits">
-						Healthline: Health benefits of Onions
-					</a>
-				</td>
-			</tr>
-		</table>
-	</div>
+    <h4 class="taskHeading">Task 3</h4>
+        <table id="veggies">
+            <tr id="headerRow">
+                <th class="vegColumn">Name</th>
+                <th class="hbColumn">Health benefit</th>
+            </tr>
+            <tr class="oddRow">
+                <td class="vegColumn">
+                    <h4>Spinach</h4>
+                    <img class="vegImg" src="spinach.png">
+                </td>
+                <td class="hbColumn">
+                    <p>Spinach has a host of benefits. It may reduce oxidative 
+                    stress, promote eye health, fight cancer, and regulate 
+                    blood pressure.</p>
+                    <br><br>
+                    <a target="blank" href="https://www.healthline.com/nutrition/foods/spinach#benefits">
+                        Healthline: Spinach 101
+                    </a>
+                </td>
+            </tr>
+            <tr class="evenRow">
+                <td class="vegColumn">
+                    <h4>Carrot</h4>
+                    <img class="vegImg" src="carrot.png">
+                </td>
+                <td class="hbColumn">
+                    <p>Eating carrots is linked to a reduced risk of cancer 
+                    and heart disease, as well as improved eye health. 
+                    Additionally, this vegetable may be a valuable component 
+                    of an effective weight loss diet.</p>
+                    <br><br>
+                    <a target="blank" href="https://www.healthline.com/nutrition/foods/carrots#benefits">
+                        Healthline: Carrots 101
+                    </a>
+                </td>
+            </tr>
+            <tr class="oddRow">
+                <td class="vegColumn">
+                    <h4>Broccoli</h4>
+                    <img class="vegImg" src="broccoli.png">
+                </td>
+                <td class="hbColumn">
+                    <p>Broccoli's isothiocyanates may improve many risk 
+                    factors for disease and reduce your risk of cancer. What's 
+                    more, this vegetable may help lower cholesterol and boost 
+                    eye health.</p>
+                    <br><br>
+                    <a target="blank" href="https://www.healthline.com/nutrition/foods/broccoli#benefits">
+                        Healthline: Broccoli 101
+                    </a>
+                </td>
+            </tr>
+            <tr class="evenRow">
+                <td class="vegColumn">
+                    <h4>Garlic</h4>
+                    <img class="vegImg" src="garlic.png">
+                </td>
+                <td class="hbColumn">
+                    <p>Current research shows that garlic may have some real 
+                    health benefits, such as protection against the common 
+                    cold and the ability to help lower blood pressure and 
+                    cholesterol levels.</p>
+                    <br><br>
+                    <a target="blank" href="https://www.healthline.com/nutrition/11-proven-health-benefits-of-garlic">
+                        Healthline: Health benefits of Garlic
+                    </a>
+                </td>
+            </tr>
+            <tr class="oddRow">
+                <td class="vegColumn">
+                    <h4>Pumpkin</h4>
+                    <img class="vegImg" src="pumpkin.png">
+                </td>
+                <td class="hbColumn">
+                    <p>Rich in vitamins, minerals and antioxidants, pumpkin 
+                    is incredibly healthy. What's more, its low calorie 
+                    content makes it a weight-loss-friendly food.</p>
+                    <br><br>
+                    <a target="blank" href="https://www.healthline.com/nutrition/pumpkin">
+                        Healthline: Health benefits of Pumpkin
+                    </a>
+                </td>
+            </tr>
+            <tr class="evenRow">
+                <td class="vegColumn">
+                    <h4>Kale</h4>
+                    <img class="vegImg" src="kale.png">
+                </td>
+                <td class="hbColumn">
+                    <p>Kale is a nutritious food rich in antioxidants, 
+                    vitamin C, vitamin K, and beta-carotene. It also 
+                    contains nutrients that can support eye health, 
+                    weight management, heart health, and more.</p>
+                    <br><br>
+                    <a target="blank" href="https://www.healthline.com/nutrition/10-proven-benefits-of-kale">
+                        Healthline: Health benefits of Kale
+                    </a>
+                </td>
+            </tr>       
+            <tr class="oddRow">
+                <td class="vegColumn">
+                    <h4>Potato</h4>
+                    <img class="vegImg" src="potato.png">
+                </td>
+                <td class="hbColumn">
+                    <p>Potatoes contain antioxidants and supply beneficial 
+                    vitamins and minerals, including vitamin C, B6, 
+                    and potassium. They may also benefit your 
+                    digestive health.</p>
+                    <br><br>
+                    <a target="blank" href="https://www.healthline.com/nutrition/benefits-of-potatoes">
+                        Healthline: Health benefits of Potatoes
+                    </a>
+                </td>
+            </tr>
+            <tr class="evenRow">
+                <td class="vegColumn">
+                    <h4>Sweet potato</h4>
+                    <img class="vegImg" src="sweet_potato.png">
+                </td>
+                <td class="hbColumn">
+                    <p>Sweet potatoes are versatile and nutritious, 
+                    packing a good amount of vitamin A, vitamin C, 
+                    and manganese into each serving. They also have 
+                    anti-cancer properties and may promote immune 
+                    function, gut health, brain function, and eye health.</p>
+                    <br><br>
+                    <a target="blank" href="https://www.healthline.com/nutrition/sweet-potato-benefits">
+                        Healthline: Health benefits of Sweet Potatoes
+                    </a>
+                </td>
+            </tr>
+            <tr class="oddRow">
+                <td class="vegColumn">
+                    <h4>Cauliflower</h4>
+                    <img class="vegImg" src="cauliflower.png">
+                </td>
+                <td class="hbColumn">
+                    <p>Cauliflower contains unique plant compounds 
+                    that may reduce the risk of several diseases, 
+                    including heart disease and cancer.</p>
+                    <br><br>
+                    <a target="blank" href="https://www.healthline.com/nutrition/benefits-of-cauliflower">
+                        Healthline: Health benefits of Cauliflower
+                    </a>
+                </td>
+            </tr>
+            <tr class="evenRow">
+                <td class="vegColumn">
+                    <h4>Onion</h4>
+                    <img class="vegImg" src="onion.png">
+                </td>
+                <td class="hbColumn">
+                    <p>Onions are highly nutritious and have been associated 
+                    with several benefits, including improved heart 
+                    health, better blood sugar control, and increased 
+                    bone density.</p>
+                    <br><br>
+                    <a target="blank" href="https://www.healthline.com/nutrition/onion-benefits">
+                        Healthline: Health benefits of Onions
+                    </a>
+                </td>
+            </tr>
+        </table>
+    </div>
 
-	<hr class="divider">
+    <hr class="divider">
 
-	<div class="T4">
-		<h4 class="taskHeading">Task 4</h4>
-		<div class="animalGame">
-			<button onClick="animalBtn('cat')">Cat</button>
-			<button onClick="animalBtn('dog')">Dog</button>
-			<button onClick="animalBtn('frog')">Frog</button>
-			<br><br>
-			<input class="textBox" id="animalBtn" type="text" placeholder="Click a button!">
-			<br><br>
-			<span id="animalSound"></span>
-			<br><br>
-			<a id="animalUrl" target="_blank">
-				<span id="animalInfo">Click here to learn about me.</span>
-			</a>
-			<br>
-			<img id="animalImg">	
-		</div>
-	</div>
+    <div class="T4">
+        <h4 class="taskHeading">Task 4</h4>
+        <div class="animalGame">
+            <button onClick="animalBtn('cat')">Cat</button>
+            <button onClick="animalBtn('dog')">Dog</button>
+            <button onClick="animalBtn('frog')">Frog</button>
+            <br><br>
+            <input class="textBox" id="animalBtn" type="text" placeholder="Click a button!">
+            <br><br>
+            <span id="animalSound"></span>
+            <br><br>
+            <a id="animalUrl" target="_blank">
+                <span id="animalInfo">Click here to learn about me.</span>
+            </a>
+            <br>
+            <img id="animalImg">    
+        </div>
+    </div>
 
 </body>
 </html>
